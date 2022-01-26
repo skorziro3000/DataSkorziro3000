@@ -1,0 +1,13 @@
+az acr create --name (Имя реестра) --resource-group (группа ресурсов) --sku standard --admin-enabled true   - Вы создадите реестр с помощью портала Azure или команды acr create Azure CLI.
+git clone https://github.com/MicrosoftDocs/mslearn-deploy-run-container-app-service.git  - скопировать с адреса github
+cd mslearn-deploy-run-container-app-service/node  - Перейдите в папку с исходным кодом.
+az acr build --registry <container_registry_name> --image (webimage имя образа) .  - 
+az acr build --file (Dockerfile) --registry (имя регистра) --image (Имя образа) .   - Реестр контейнеров также можно использовать для сборки образов. Используется CLI для отправки файла Docker и других файлов образа. Реестр контейнеров выполнит сборку образа автоматически. Сборка выполняется по команде acr build.
+Файл Docker содержит пошаговые инструкции по сборке образа Docker из исходного кода веб-приложения. Реестр контейнеров выполнит их для сборки образа. После завершения каждого шага выводится сообщение. Процесс сборки занимает несколько минут и должен завершиться без ошибок и предупреждений.
+Файл запуска: это имя исполняемого файла или команды, которые нужно выполнить при загрузке образа. Это эквивалентно команде, которую можно передать в Docker при загрузке образа из командной строки с помощью docker run. Если вы развертываете готовое к запуску контейнерное приложение, для которого уже заданы значения ENTRYPOINT и (или) COMMAND, этот параметр указывать не нужно.
+Задачи Реестра контейнеров нужно создавать из командной строки. В отличие от команды az acr build, с помощью которой мы ранее выполнили сборку образа, команда az acr task create создает и регистрирует долгосрочную задачу.
+az acr task create --registry <container_registry_name> --name (мя задачи) --image (имя образа) --context https://github.com/MicrosoftDocs/mslearn-deploy-run-container-app-service.git --file (Dockerfile) --git-access-token (<access_token>)   - создать задачу
+cd ~/mslearn-deploy-run-container-app-service/node/routes   - В Azure Cloud Shell перейдите в папку node/routes. Она содержит исходный код, создающий страницы, отображаемые веб-приложением.
+code index.js  -- Откройте index.js в редакторе Cloud Shell.
+cd ~/mslearn-deploy-run-container-app-service/node   --  открывает каталог
+az acr build --registry <container_registry_name> --image (webimage) .  -- записывает указанный образ

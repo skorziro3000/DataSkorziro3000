@@ -1,0 +1,17 @@
+ls -la /: для отображения корня диска;
+ps -l: для отображения всех запущенных процессов;
+dmesg: для вывода всех сообщений ядра;
+lsblk: для вывода списка всех блочных устройств, включая диски.
+dmesg | grep SCSI найти диски
+sudo apt-get update обновление индекса пакетов (списка)
+sudo apt-get upgrade обновление всех пакетов
+sudo apt-get install (аргумент)
+sudo apt-get search 
+sudo apt 
+--no-pager 
+sudo systemctl status (apache2) Проверить состояние (аргумента
+sudo nano /root/.ssh/authorized_keys добавление ключа ssh
+sudo service ssh restart перезагрузка сервиса ssh
+apt install network-manager -y
+nmtui
+
